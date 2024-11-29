@@ -1,0 +1,14 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier", "next"],
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "out/",
+    "./src/app/_components/ui/*",
+    "./src/app/_components/magicui/*"
+  ],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "react/no-unescaped-entities": "off"
+  }
+}
