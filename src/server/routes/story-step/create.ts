@@ -39,12 +39,15 @@ export const storyStepRoute = createRoute({
           schema: z.object({
             title: z.string().max(255).min(2),
             image: FileRequestSchema,
-            dialogs: z.array(
-              z.object({
-                title: z.string().max(255).min(2),
-                content: z.string().max(10000).min(2),
-                order: z.number().int().nonnegative(),
-              })
+            dialogs: z.preprocess(
+              (v) => JSON.parse(v as string),
+              z.array(
+                z.object({
+                  title: z.string().max(255).min(2),
+                  content: z.string().max(10000).min(2),
+                  order: z.number().int().nonnegative(),
+                })
+              )
             ),
           }),
         },
